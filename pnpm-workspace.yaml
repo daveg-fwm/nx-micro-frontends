@@ -1,2 +1,7 @@
+nodeVersion: "24.14.1"
+saveExact: true
 packages:
-  - 'packages/*'
+  - "apps/*"
+  - "packages/*"
+allowBuilds:
+  nx: true
