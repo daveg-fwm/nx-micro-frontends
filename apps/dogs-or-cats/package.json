@@ -1,0 +1,60 @@
+{
+  "name": "dogs-or-cats",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "nx": {
+    "name": "dogs-or-cats",
+    "targets": {
+      "dev": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "rsbuild --open",
+          "cwd": "apps/dogs-or-cats"
+        }
+      },
+      "build": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "rsbuild build",
+          "cwd": "apps/dogs-or-cats"
+        }
+      },
+      "format": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "prettier --write .",
+          "cwd": "apps/dogs-or-cats"
+        }
+      },
+      "lint": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "eslint .",
+          "cwd": "apps/dogs-or-cats"
+        }
+      },
+      "preview": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "rsbuild preview",
+          "cwd": "apps/dogs-or-cats"
+        }
+      },
+      "test": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "rstest",
+          "cwd": "apps/dogs-or-cats"
+        }
+      },
+      "test:watch": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "rstest --watch",
+          "cwd": "apps/dogs-or-cats"
+        }
+      }
+    }
+  }
+}

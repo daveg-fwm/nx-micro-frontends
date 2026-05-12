@@ -4,3 +4,8 @@
 /.nx/cache
 /.nx/workspace-data
 .nx/self-healing
+
+# Lock files
+package-lock.json
+pnpm-lock.yaml
+yarn.lock

@@ -1,21 +1,29 @@
 {
   "compilerOptions": {
+    "lib": ["DOM", "ES2020"],
+    "jsx": "react-jsx",
+    "target": "ES2020",
+    "noEmit": true,
+    "useDefineForClassFields": true,
+    "moduleDetection": "force",
+    "moduleResolution": "bundler",
+    "verbatimModuleSyntax": true,
+    "resolveJsonModule": true,
+    "allowImportingTsExtensions": true,
     "composite": true,
     "declarationMap": true,
     "emitDeclarationOnly": true,
     "importHelpers": true,
     "isolatedModules": true,
-    "lib": ["es2022"],
-    "module": "nodenext",
-    "moduleResolution": "nodenext",
     "noEmitOnError": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitOverride": true,
     "noImplicitReturns": true,
     "noUnusedLocals": true,
+    "noUnusedParameters": true,
     "skipLibCheck": true,
     "strict": true,
-    "target": "es2022",
-    "customConditions": ["@org/source"]
+    "customConditions": ["@org/source"],
+    "types": ["@testing-library/jest-dom"]
   }
 }
