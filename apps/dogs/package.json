@@ -9,7 +9,7 @@
       "dev": {
         "executor": "nx:run-commands",
         "options": {
-          "command": "rsbuild --open",
+          "command": "rsbuild",
           "cwd": "apps/dogs"
         }
       },

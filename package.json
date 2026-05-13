@@ -2,14 +2,18 @@
   "name": "@org/source",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "dev": "nx run-many -t dev -p dogs dogs-or-cats"
+  },
   "private": true,
   "dependencies": {
+    "@module-federation/enhanced": "2.4.0",
     "react": "19.2.5",
     "react-dom": "19.2.5"
   },
   "devDependencies": {
     "@eslint/js": "10.0.1",
+    "@module-federation/rsbuild-plugin": "2.4.0",
     "@rsbuild/core": "2.0.3",
     "@rsbuild/plugin-babel": "1.1.2",
     "@rsbuild/plugin-react": "2.0.0",

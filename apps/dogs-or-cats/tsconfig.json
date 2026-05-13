@@ -1,5 +1,9 @@
 {
   "extends": "../../tsconfig.base.json",
-  "compilerOptions": {},
-  "include": ["src", "rstest.config.ts", "rsbuild.config.ts"]
+  "compilerOptions": {
+    "paths": {
+      "*": ["./@mf-types/*"]
+    }
+  },
+  "include": ["src", "*.config.ts", "./@mf-types/**/*"]
 }

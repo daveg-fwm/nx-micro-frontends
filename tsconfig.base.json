@@ -6,6 +6,7 @@
     "noEmit": true,
     "useDefineForClassFields": true,
     "moduleDetection": "force",
+    "module": "esnext",
     "moduleResolution": "bundler",
     "verbatimModuleSyntax": true,
     "resolveJsonModule": true,
