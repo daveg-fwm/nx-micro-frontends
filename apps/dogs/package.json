@@ -1,0 +1,60 @@
+{
+  "name": "dogs",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "nx": {
+    "name": "dogs",
+    "targets": {
+      "dev": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "rsbuild --open",
+          "cwd": "apps/dogs"
+        }
+      },
+      "build": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "rsbuild build",
+          "cwd": "apps/dogs"
+        }
+      },
+      "format": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "prettier --write .",
+          "cwd": "apps/dogs"
+        }
+      },
+      "lint": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "eslint .",
+          "cwd": "apps/dogs"
+        }
+      },
+      "preview": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "rsbuild preview",
+          "cwd": "apps/dogs"
+        }
+      },
+      "test": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "rstest",
+          "cwd": "apps/dogs"
+        }
+      },
+      "test:watch": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "rstest --watch",
+          "cwd": "apps/dogs"
+        }
+      }
+    }
+  }
+}
