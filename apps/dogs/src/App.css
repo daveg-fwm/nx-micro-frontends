@@ -1,4 +1,4 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 
 body {
   margin: 0;
@@ -16,8 +16,8 @@ body {
   justify-content: center;
 }
 
-.content h1 {
-  font-size: 3.6rem;
+.content.content-dogs h1 {
+  font-size: 1.6rem;
   font-weight: 700;
 }
 

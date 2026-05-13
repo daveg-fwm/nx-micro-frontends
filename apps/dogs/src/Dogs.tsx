@@ -1,6 +1,6 @@
 export function Dogs() {
   return (
-    <div className="content">
+    <div className="content content-dogs">
       <h1>
         <span className="mb-3 block">DOGS</span>Rsbuild with React
       </h1>

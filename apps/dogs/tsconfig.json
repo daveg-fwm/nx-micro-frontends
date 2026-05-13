@@ -1,5 +1,5 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {},
-  "include": ["src", "rstest.config.ts", "rsbuild.config.ts"]
+  "include": ["src", "*.config.ts", "../../module-federation.config.ts"]
 }

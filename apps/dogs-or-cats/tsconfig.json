@@ -5,5 +5,5 @@
       "*": ["./@mf-types/*"]
     }
   },
-  "include": ["src", "*.config.ts", "./@mf-types/**/*"]
+  "include": ["src", "*.config.ts", "./@mf-types/**/*", "../../module-federation.config.ts"]
 }

@@ -2,15 +2,12 @@ import { defineConfig } from "@rsbuild/core";
 import { pluginBabel } from "@rsbuild/plugin-babel";
 import { pluginReact } from "@rsbuild/plugin-react";
 import { pluginModuleFederation } from "@module-federation/rsbuild-plugin";
+import { mfConfig } from "../../module-federation.config";
 
 // Docs: https://rsbuild.rs/config/
 export default defineConfig({
   server: {
     port: 2001,
-    cors: { origin: "*" },
-  },
-  output: {
-    assetPrefix: "http://localhost:2001",
   },
   plugins: [
     pluginReact(),
@@ -26,7 +23,7 @@ export default defineConfig({
       exposes: {
         "./dog-app": "./src/Dogs.tsx",
       },
-      shared: ["react", "react-dom"],
+      shared: mfConfig.shared,
     }),
   ],
 });

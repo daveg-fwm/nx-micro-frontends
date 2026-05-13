@@ -2,6 +2,7 @@ import { defineConfig } from "@rsbuild/core";
 import { pluginBabel } from "@rsbuild/plugin-babel";
 import { pluginReact } from "@rsbuild/plugin-react";
 import { pluginModuleFederation } from "@module-federation/rsbuild-plugin";
+import { mfConfig } from "../../module-federation.config";
 
 // Docs: https://rsbuild.rs/config/
 export default defineConfig({
@@ -17,12 +18,6 @@ export default defineConfig({
         opts.plugins?.unshift("babel-plugin-react-compiler");
       },
     }),
-    pluginModuleFederation({
-      name: "host",
-      remotes: {
-        dogs: "dogs@http://localhost:2001/mf-manifest.json",
-      },
-      shared: ["react", "react-dom"],
-    }),
+    pluginModuleFederation(mfConfig),
   ],
 });
