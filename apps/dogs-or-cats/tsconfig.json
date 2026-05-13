@@ -1,5 +1,5 @@
 {
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {},
-  "include": ["src"]
+  "include": ["src", "rstest.config.ts", "rsbuild.config.ts"]
 }
