@@ -23,7 +23,6 @@
     "noUnusedParameters": true,
     "skipLibCheck": true,
     "strict": true,
-    "customConditions": ["@org/source"],
-    "types": ["@testing-library/jest-dom"]
+    "customConditions": ["@org/source"]
   }
 }
