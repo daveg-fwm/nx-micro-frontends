@@ -11,6 +11,9 @@ export function Home() {
       <Link className="mt-4" to="/dogs">
         Go to Dogs
       </Link>
+      <Link className="mt-4" to="/cats">
+        Go to Cats
+      </Link>
     </div>
   );
 }

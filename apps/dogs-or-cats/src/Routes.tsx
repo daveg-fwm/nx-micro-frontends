@@ -3,6 +3,7 @@ import { Routes as ReactRouterRoutes, Route, useNavigate } from "react-router";
 
 import { Home } from "./Home";
 import { Dogs } from "dogs/dog-app";
+import { Cats } from "cats/cat-app";
 
 export function Routes() {
   const navigate = useNavigate();
@@ -13,6 +14,7 @@ export function Routes() {
       <Route index element={<Home />} />
 
       <Route path="/dogs" element={<Dogs navigate={navigate} />} />
+      <Route path="/cats" element={<Cats navigate={navigate} />} />
     </ReactRouterRoutes>
   );
 }

@@ -4,4 +4,5 @@ packages:
   - "apps/*"
   - "packages/*"
 allowBuilds:
+  "@swc/core": true
   nx: true

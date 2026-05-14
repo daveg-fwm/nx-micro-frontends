@@ -2,6 +2,7 @@
 
 # compiled output
 dist
+dist-ssr
 tmp
 out-tsc
 tsconfig.tsbuildinfo
@@ -52,9 +53,11 @@ Thumbs.db
 # Local
 *.local
 *.log*
-
-# Dist
-dist/
+logs
+pnpm-debug.log*
 
 # Profile
 .rspack-profile-*/
+
+#Module Federation
+.mf

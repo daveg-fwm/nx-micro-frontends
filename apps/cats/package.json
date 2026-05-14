@@ -1,0 +1,46 @@
+{
+  "name": "cats",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "nx": {
+    "name": "cats",
+    "targets": {
+      "dev": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "vite",
+          "cwd": "apps/cats"
+        }
+      },
+      "build": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "tsc -b && vite build",
+          "cwd": "apps/cats"
+        }
+      },
+      "format": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "prettier --write .",
+          "cwd": "apps/cats"
+        }
+      },
+      "lint": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "eslint .",
+          "cwd": "apps/cats"
+        }
+      },
+      "preview": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "vite preview",
+          "cwd": "apps/cats"
+        }
+      }
+    }
+  }
+}

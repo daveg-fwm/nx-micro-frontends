@@ -24,6 +24,7 @@
     "noUnusedParameters": true,
     "skipLibCheck": true,
     "strict": true,
-    "customConditions": ["@org/source"]
+    "customConditions": ["@org/source"],
+    "types": ["vite/client"]
   }
 }
