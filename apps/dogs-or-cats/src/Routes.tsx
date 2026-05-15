@@ -1,3 +1,4 @@
+import Cats from "cats/cat-app";
 import Dogs from "dogs/dog-app";
 import { Routes as ReactRouterRoutes, Route } from "react-router";
 
@@ -13,6 +14,7 @@ export function Routes() {
       <Route index element={<Home />} />
 
       <Route path="/dogs" element={<Dogs />} />
+      <Route path="/cats" element={<Cats />} />
     </ReactRouterRoutes>
   );
 }

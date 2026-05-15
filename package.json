@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "dev": "nx run-many -t dev -p dogs dogs-or-cats",
+    "dev": "nx run-many -t dev -p dogs cats dogs-or-cats",
     "dev:dogs": "nx dev dogs",
     "dev:cats": "nx dev cats"
   },

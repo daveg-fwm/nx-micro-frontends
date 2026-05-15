@@ -1,0 +1,1 @@
+{"version":3,"file":"AnimalImage.d.ts","sourceRoot":"","sources":["../../../../../../../../packages/shared/components/AnimalImage.tsx"],"names":[],"mappings":"AAEA,KAAK,gBAAgB,GAAG;IACtB,GAAG,CAAC,EAAE,MAAM,CAAC;IACb,SAAS,CAAC,EAAE,OAAO,CAAC;IACpB,YAAY,EAAE,KAAK,CAAC,GAAG,CAAC,WAAW,CAAC;CACrC,CAAC;AAEF,wBAAgB,WAAW,CAAC,EAAE,GAAG,EAAE,SAAS,EAAE,YAAY,EAAE,EAAE,gBAAgB,2CAkB7E"}
