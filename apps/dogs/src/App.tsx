@@ -1,7 +1,6 @@
 // import { useNavigate } from "react-router";
+import { PageHeader } from "@shared";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-
-import { Header } from "~/components/layout/Header";
 
 import "./App.css";
 import { Home } from "./pages/Home";
@@ -13,7 +12,7 @@ export default function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <Header />
+      <PageHeader title="Dog Breed Viewer" />
       <Home />
     </QueryClientProvider>
   );

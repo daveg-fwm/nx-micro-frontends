@@ -1,14 +1,12 @@
 import { useState } from "react";
 
+import { AnimalImage, ErrorTryAgain, HomeLoadingSkeleton, SearchableDropdown } from "@shared";
+import type { SearchableDropdownItem } from "@shared";
 import { useQuery } from "@tanstack/react-query";
 
 import { getDogBreedList } from "~/api/dog-breeds";
-import { DogImages } from "~/components/section/DogImages";
-import { HomeLoadingSkeleton } from "~/components/section/HomeLoadingSkeleton";
-import { Button } from "~/components/ui/Button";
-import { DogImage } from "~/components/ui/DogImage";
-import type { Item } from "~/components/ui/SearchableDropdown";
-import { SearchableDropdown } from "~/components/ui/SearchableDropdown";
+import DogIllustration from "~/assets/images/dog-illustration.svg?react";
+import { DogImages } from "~/components/DogImages";
 
 export function Home() {
   const [selectedBreed, setSelectedBreed] = useState({ label: "", value: "" });
@@ -22,7 +20,7 @@ export function Home() {
     refetch();
   };
 
-  const updateSelectedItem = (item: Item) => {
+  const updateSelectedItem = (item: SearchableDropdownItem) => {
     setSelectedBreed(item);
   };
 
@@ -33,14 +31,11 @@ export function Home() {
   if (error) {
     return (
       <div className="text-center">
-        <p className="text-gray-500">Apologies, we seem to be having some technical issues 🙈</p>
-        <Button className="mx-auto mt-4 mb-6" onClick={onButtonClick}>
-          Try again
-        </Button>
+        <ErrorTryAgain onClick={onButtonClick} />
 
         <div className="mt-8 grid gap-4 lg:grid-cols-3">
           {Array.from({ length: 3 }).map((_, index) => (
-            <DogImage key={index} />
+            <AnimalImage key={index} Illustration={DogIllustration} />
           ))}
         </div>
       </div>
@@ -62,7 +57,7 @@ export function Home() {
         ) : (
           <>
             {Array.from({ length: 3 }).map((_, index) => (
-              <DogImage key={index} />
+              <AnimalImage key={index} Illustration={DogIllustration} />
             ))}
           </>
         )}

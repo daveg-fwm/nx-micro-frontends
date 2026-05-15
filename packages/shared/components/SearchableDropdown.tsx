@@ -10,13 +10,13 @@ import {
 } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 
-export type Item = { label: string; value: string };
+export type SearchableDropdownItem = { label: string; value: string };
 
 type SearchableDropdownProps = {
   label: string;
-  items: Item[];
-  selectedItem: Item;
-  updateSelectedItem: (item: Item) => void;
+  items: SearchableDropdownItem[];
+  selectedItem: SearchableDropdownItem;
+  updateSelectedItem: (item: SearchableDropdownItem) => void;
 };
 
 export function SearchableDropdown({
@@ -52,7 +52,7 @@ export function SearchableDropdown({
       <div className="relative mt-2">
         <ComboboxInput
           className="block w-full rounded-md bg-white py-1.5 pr-12 pl-3 text-base text-gray-900 outline-1 -outline-offset-1 outline-gray-300 placeholder:text-gray-400 focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6"
-          displayValue={(selectedItem: Item) => selectedItem?.label}
+          displayValue={(selectedItem: SearchableDropdownItem) => selectedItem?.label}
           placeholder="Start typing or click the arrow for a full list"
           onChange={(event) => setQuery(event.target.value)}
           onBlur={() => setQuery("")}

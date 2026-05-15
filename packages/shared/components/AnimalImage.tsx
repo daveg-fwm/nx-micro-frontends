@@ -1,17 +1,17 @@
-import DogIllustration from "~/assets/images/dog-illustration.svg?react";
-import Spinner from "~/assets/images/spinner.svg?react";
+import Spinner from "../images/spinner.svg?react";
 
-type DogImageprops = {
+type AnimalImageprops = {
   url?: string;
   isLoading?: boolean;
+  Illustration: React.JSX.ElementType;
 };
 
-export function DogImage({ url, isLoading }: DogImageprops) {
+export function AnimalImage({ url, isLoading, Illustration }: AnimalImageprops) {
   return (
     <div className="relative mx-auto h-[400px] w-full overflow-hidden rounded-xl border-2 border-dashed border-indigo-400 text-indigo-400">
       {!url && !isLoading ? (
         <div className="m-auto flex h-full w-1/2 flex-col justify-center">
-          <DogIllustration />
+          <Illustration />
         </div>
       ) : null}
 

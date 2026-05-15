@@ -1,9 +1,8 @@
+import { AnimalImage, Button, ErrorTryAgain, Spinner } from "@shared";
 import { useQuery } from "@tanstack/react-query";
 
 import { getRandomDogBreedImages } from "~/api/dog-breeds";
-import Spinner from "~/assets/images/spinner.svg?react";
-import { Button } from "~/components/ui/Button";
-import { DogImage } from "~/components/ui/DogImage";
+import DogIllustration from "~/assets/images/dog-illustration.svg?react";
 
 type DogImagesProps = {
   selectedBreed: { label: string; value: string };
@@ -31,7 +30,11 @@ export function DogImages({ selectedBreed }: DogImagesProps) {
     return (
       <>
         {Array.from({ length: 3 }).map((_, index) => (
-          <DogImage key={index} isLoading={isPending || isFetching} />
+          <AnimalImage
+            key={index}
+            Illustration={DogIllustration}
+            isLoading={isPending || isFetching}
+          />
         ))}
 
         <div className="col-span-full mx-auto mt-8 h-10 w-10 animate-spin text-indigo-400">
@@ -45,14 +48,11 @@ export function DogImages({ selectedBreed }: DogImagesProps) {
     return (
       <>
         <div className="col-span-full mx-auto text-center">
-          <p className="text-gray-500">Apologies, we seem to be having some technical issues 🙈</p>
-          <Button className="mx-auto mt-4 mb-6" onClick={onButtonClick}>
-            Try again
-          </Button>
+          <ErrorTryAgain onClick={onButtonClick} />
         </div>
 
         {Array.from({ length: 3 }).map((_, index) => (
-          <DogImage key={index} />
+          <AnimalImage key={index} Illustration={DogIllustration} />
         ))}
       </>
     );
@@ -60,9 +60,9 @@ export function DogImages({ selectedBreed }: DogImagesProps) {
 
   return (
     <>
-      <DogImage url={images[0]} />
-      <DogImage url={images[1]} />
-      <DogImage url={images[2]} />
+      <AnimalImage url={images[0]} Illustration={DogIllustration} />
+      <AnimalImage url={images[1]} Illustration={DogIllustration} />
+      <AnimalImage url={images[2]} Illustration={DogIllustration} />
 
       <Button className="col-span-full mx-auto mt-8" onClick={onButtonClick}>
         {`Find more photos of ${selectedBreed.label}s`}

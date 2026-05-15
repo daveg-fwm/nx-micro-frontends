@@ -3,5 +3,5 @@
   "compileOnSave": false,
   "files": [],
   "references": [],
-  "include": ["*.config.ts"]
+  "include": ["*.config.ts", "packages/**/*"]
 }

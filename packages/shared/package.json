@@ -1,0 +1,25 @@
+{
+  "name": "@shared",
+  "version": "0.0.1",
+  "main": "src/index.ts",
+  "type": "module",
+  "nx": {
+    "name": "@shared",
+    "targets": {
+      "format": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "prettier --write .",
+          "cwd": "packages/shared"
+        }
+      },
+      "lint": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "eslint . --fix",
+          "cwd": "packages/shared"
+        }
+      }
+    }
+  }
+}

@@ -30,7 +30,7 @@
       "lint": {
         "executor": "nx:run-commands",
         "options": {
-          "command": "eslint .",
+          "command": "eslint . --fix",
           "cwd": "apps/dogs"
         }
       },
