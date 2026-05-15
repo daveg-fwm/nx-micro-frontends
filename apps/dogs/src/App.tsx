@@ -1,13 +1,20 @@
+// import { useNavigate } from "react-router";
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+
+import { Header } from "~/components/layout/Header";
+
 import "./App.css";
+import { Home } from "./pages/Home";
 
-import { useNavigate } from "react-router";
+const queryClient = new QueryClient();
 
-import { Dogs } from "./Dogs";
+export default function App() {
+  // const navigate = useNavigate();
 
-const App = () => {
-  const navigate = useNavigate();
-
-  return <Dogs navigate={navigate} />;
-};
-
-export default App;
+  return (
+    <QueryClientProvider client={queryClient}>
+      <Header />
+      <Home />
+    </QueryClientProvider>
+  );
+}

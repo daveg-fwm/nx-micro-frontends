@@ -3,9 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "dev": "pnpm exec nx run cats:mf-remote-dist && pnpm exec nx run-many -t dev -p dogs cats dogs-or-cats",
-    "dev:dogs": "pnpm exec nx dev dogs",
-    "dev:cats": "pnpm exec nx dev cats"
+    "dev": "nx run-many -t dev -p dogs dogs-or-cats",
+    "dev:dogs": "nx dev dogs",
+    "dev:cats": "nx dev cats"
   },
   "private": true,
   "dependencies": {
@@ -25,6 +25,7 @@
     "@rsbuild/core": "2.0.3",
     "@rsbuild/plugin-babel": "1.1.2",
     "@rsbuild/plugin-react": "2.0.0",
+    "@rsbuild/plugin-svgr": "2.0.2",
     "@rstest/adapter-rsbuild": "0.2.6",
     "@rstest/core": "0.9.10",
     "@swc-node/register": "1.11.1",

@@ -1,5 +1,9 @@
 {
   "extends": "../../tsconfig.base.json",
-  "compilerOptions": {},
+  "compilerOptions": {
+    "paths": {
+      "~/*": ["./src/*"]
+    }
+  },
   "include": ["src", "*.config.ts", "../../module-federation.config.ts"]
 }

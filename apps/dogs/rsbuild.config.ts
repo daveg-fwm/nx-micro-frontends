@@ -1,7 +1,9 @@
+import { pluginModuleFederation } from "@module-federation/rsbuild-plugin";
 import { defineConfig } from "@rsbuild/core";
 import { pluginBabel } from "@rsbuild/plugin-babel";
 import { pluginReact } from "@rsbuild/plugin-react";
-import { pluginModuleFederation } from "@module-federation/rsbuild-plugin";
+import { pluginSvgr } from "@rsbuild/plugin-svgr";
+
 import { mfConfig } from "../../module-federation.config";
 
 // Docs: https://rsbuild.rs/config/
@@ -11,6 +13,7 @@ export default defineConfig({
   },
   plugins: [
     pluginReact(),
+    pluginSvgr(),
     pluginBabel({
       include: /\.[jt]sx?$/,
       exclude: [/[\\/]node_modules[\\/]/],
@@ -21,7 +24,7 @@ export default defineConfig({
     pluginModuleFederation({
       name: "dogs",
       exposes: {
-        "./dog-app": "./src/Dogs.tsx",
+        "./dog-app": "./src/App.tsx",
       },
       shared: mfConfig.shared,
     }),

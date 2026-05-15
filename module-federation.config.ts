@@ -1,7 +1,6 @@
-import type { ModuleFederationOptions as RsbuildOption } from "@module-federation/rsbuild-plugin";
-import type { ModuleFederationOptions as ViteOptions } from "@module-federation/vite";
+import type { ModuleFederationOptions } from "@module-federation/rsbuild-plugin";
 
-export const mfConfig: RsbuildOption & ViteOptions = {
+export const mfConfig: ModuleFederationOptions = {
   name: "host",
   remotes: {
     dogs: "dogs@http://localhost:2001/mf-manifest.json",
@@ -12,6 +11,6 @@ export const mfConfig: RsbuildOption & ViteOptions = {
     "react-dom": { singleton: true, requiredVersion: "19.2.6" },
     // "react/jsx-runtime": { singleton: true, requiredVersion: "19.2.6" },
     // "react/jsx-dev-runtime": { singleton: true, requiredVersion: "19.2.6" },
-    // "react-router": { singleton: true, requiredVersion: "7.15.0" },
+    "react-router": { singleton: true, requiredVersion: "7.15.0" },
   },
 };
