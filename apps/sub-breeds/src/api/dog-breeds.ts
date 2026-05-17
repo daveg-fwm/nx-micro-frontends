@@ -19,9 +19,6 @@ export async function getDogBreedList(): Promise<GetDogBreedListResponse> {
   const data = (await response.json()) as { message: { [key: string]: string[] } };
 
   const breeds = Object.entries(data.message).reduce((allBreeds, [breed, subBreeds]) => {
-    const label = capitalizeString(breed);
-    allBreeds.push({ label, value: breed });
-
     if (subBreeds.length) {
       for (const subBreed of subBreeds) {
         const label = capitalizeString(`${subBreed} ${breed}`);
