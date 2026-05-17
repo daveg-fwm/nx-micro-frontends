@@ -1,11 +1,10 @@
 import { useState } from "react";
 
-import { AnimalImage, ErrorTryAgain, HomeLoadingSkeleton, SearchableDropdown } from "@shared";
+import { DogImage, ErrorTryAgain, HomeLoadingSkeleton, SearchableDropdown } from "@shared";
 import type { SearchableDropdownItem } from "@shared";
 import { useQuery } from "@tanstack/react-query";
 
 import { getDogBreedList } from "~/api/dog-breeds";
-import DogIllustration from "~/assets/images/dog-illustration.svg?react";
 import { DogImages } from "~/components/DogImages";
 
 export function Home() {
@@ -35,7 +34,7 @@ export function Home() {
 
         <div className="mt-8 grid gap-4 lg:grid-cols-3">
           {Array.from({ length: 3 }).map((_, index) => (
-            <AnimalImage key={index} Illustration={DogIllustration} />
+            <DogImage key={index} />
           ))}
         </div>
       </div>
@@ -45,7 +44,7 @@ export function Home() {
   return (
     <section>
       <SearchableDropdown
-        label="Choose your favourite breed"
+        label="Choose your favourite sub-breed"
         items={data}
         selectedItem={selectedBreed}
         updateSelectedItem={updateSelectedItem}
@@ -57,7 +56,7 @@ export function Home() {
         ) : (
           <>
             {Array.from({ length: 3 }).map((_, index) => (
-              <AnimalImage key={index} Illustration={DogIllustration} />
+              <DogImage key={index} />
             ))}
           </>
         )}

@@ -12,5 +12,6 @@ export const mfConfig: ModuleFederationOptions = {
     react: { singleton: true, requiredVersion: dependencies.react },
     "react-dom": { singleton: true, requiredVersion: dependencies["react-dom"] },
     "react-router": { singleton: true, requiredVersion: dependencies["react-router"] },
+    clsx: { singleton: true, requiredVersion: dependencies["clsx"] },
   },
 };

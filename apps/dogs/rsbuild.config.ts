@@ -2,6 +2,7 @@ import { pluginModuleFederation } from "@module-federation/rsbuild-plugin";
 import { defineConfig } from "@rsbuild/core";
 import { pluginBabel } from "@rsbuild/plugin-babel";
 import { pluginReact } from "@rsbuild/plugin-react";
+import { pluginSvgr } from "@rsbuild/plugin-svgr";
 
 import { mfConfig } from "../../module-federation.config";
 
@@ -19,6 +20,7 @@ export default defineConfig({
         opts.plugins?.unshift("babel-plugin-react-compiler");
       },
     }),
+    pluginSvgr(),
     pluginModuleFederation(mfConfig),
   ],
 });

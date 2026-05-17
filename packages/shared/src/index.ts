@@ -1,7 +1,8 @@
 export { Button } from "../components/Button";
-export { AnimalImage } from "../components/AnimalImage";
-export { PageHeader } from "../components/PageHeader";
+export { DogImage } from "../components/DogImage";
 export { ErrorTryAgain } from "../components/ErrorTryAgain";
 export { HomeLoadingSkeleton } from "../components/HomeLoadingSkeleton";
 export { SearchableDropdown, type SearchableDropdownItem } from "../components/SearchableDropdown";
-export { default as Spinner } from "../images/Spinner.svg?react";
+
+export { default as Spinner } from "../images/spinner.svg?react";
+export { default as DogIllustration } from "../images/dog-illustration.svg?react";
