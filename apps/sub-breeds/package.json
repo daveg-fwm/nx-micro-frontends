@@ -1,0 +1,60 @@
+{
+  "name": "subBreeds",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "nx": {
+    "name": "subBreeds",
+    "targets": {
+      "dev": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "rsbuild",
+          "cwd": "apps/sub-breeds"
+        }
+      },
+      "build": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "rsbuild build",
+          "cwd": "apps/sub-breeds"
+        }
+      },
+      "format": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "prettier --write .",
+          "cwd": "apps/sub-breeds"
+        }
+      },
+      "lint": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "eslint . --fix",
+          "cwd": "apps/sub-breeds"
+        }
+      },
+      "preview": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "rsbuild preview",
+          "cwd": "apps/sub-breeds"
+        }
+      },
+      "test": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "rstest",
+          "cwd": "apps/sub-breeds"
+        }
+      },
+      "test:watch": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "rstest --watch",
+          "cwd": "apps/sub-breeds"
+        }
+      }
+    }
+  }
+}

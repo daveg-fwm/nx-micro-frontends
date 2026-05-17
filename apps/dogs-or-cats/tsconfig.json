@@ -1,9 +1,0 @@
-{
-  "extends": "../../tsconfig.base.json",
-  "compilerOptions": {
-    "paths": {
-      "*": ["./@mf-types/*"]
-    }
-  },
-  "include": ["src", "*.config.ts", "./@mf-types/**/*", "../../module-federation.config.ts"]
-}

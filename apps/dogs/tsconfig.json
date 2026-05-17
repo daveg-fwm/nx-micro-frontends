@@ -2,9 +2,14 @@
   "extends": "../../tsconfig.base.json",
   "compilerOptions": {
     "paths": {
-      "~/*": ["./src/*"],
-      "@shared": ["../../packages/shared/src/index.ts"]
+      "*": ["./@mf-types/*"]
     }
   },
-  "include": ["src", "*.config.ts", "../../module-federation.config.ts", "../../packages/shared"]
+  "include": [
+    "src",
+    "*.config.ts",
+    "./@mf-types/**/*",
+    "../../module-federation.config.ts",
+    "../../packages/shared"
+  ]
 }

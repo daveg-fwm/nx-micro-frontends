@@ -5,8 +5,8 @@ import { dependencies } from "./package.json";
 export const mfConfig: ModuleFederationOptions = {
   name: "host",
   remotes: {
-    dogs: "dogs@http://localhost:2001/mf-manifest.json",
-    cats: "cats@http://localhost:2002/mf-manifest.json",
+    breeds: "breeds@http://localhost:2001/mf-manifest.json",
+    subBreeds: "subBreeds@http://localhost:2002/mf-manifest.json",
   },
   shared: {
     react: { singleton: true, requiredVersion: dependencies.react },

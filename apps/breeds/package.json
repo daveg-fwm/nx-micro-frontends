@@ -1,0 +1,60 @@
+{
+  "name": "breeds",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "nx": {
+    "name": "breeds",
+    "targets": {
+      "dev": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "rsbuild",
+          "cwd": "apps/breeds"
+        }
+      },
+      "build": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "rsbuild build",
+          "cwd": "apps/breeds"
+        }
+      },
+      "format": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "prettier --write .",
+          "cwd": "apps/breeds"
+        }
+      },
+      "lint": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "eslint . --fix",
+          "cwd": "apps/breeds"
+        }
+      },
+      "preview": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "rsbuild preview",
+          "cwd": "apps/breeds"
+        }
+      },
+      "test": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "rstest",
+          "cwd": "apps/breeds"
+        }
+      },
+      "test:watch": {
+        "executor": "nx:run-commands",
+        "options": {
+          "command": "rstest --watch",
+          "cwd": "apps/breeds"
+        }
+      }
+    }
+  }
+}

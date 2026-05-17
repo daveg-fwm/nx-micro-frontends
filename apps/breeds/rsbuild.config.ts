@@ -2,16 +2,18 @@ import { pluginModuleFederation } from "@module-federation/rsbuild-plugin";
 import { defineConfig } from "@rsbuild/core";
 import { pluginBabel } from "@rsbuild/plugin-babel";
 import { pluginReact } from "@rsbuild/plugin-react";
+import { pluginSvgr } from "@rsbuild/plugin-svgr";
 
 import { mfConfig } from "../../module-federation.config";
 
 // Docs: https://rsbuild.rs/config/
 export default defineConfig({
   server: {
-    port: 2000,
+    port: 2001,
   },
   plugins: [
     pluginReact(),
+    pluginSvgr(),
     pluginBabel({
       include: /\.[jt]sx?$/,
       exclude: [/[\\/]node_modules[\\/]/],
@@ -19,6 +21,12 @@ export default defineConfig({
         opts.plugins?.unshift("babel-plugin-react-compiler");
       },
     }),
-    pluginModuleFederation(mfConfig),
+    pluginModuleFederation({
+      name: "breeds",
+      exposes: {
+        "./breeds-app": "./src/App.tsx",
+      },
+      shared: mfConfig.shared,
+    }),
   ],
 });

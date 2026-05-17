@@ -2,7 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router";
 
-import { Routes } from "./Routes";
+import App from "./App";
 
 const rootEl = document.getElementById("root");
 
@@ -11,7 +11,7 @@ if (rootEl) {
   root.render(
     <React.StrictMode>
       <BrowserRouter>
-        <Routes />
+        <App />
       </BrowserRouter>
     </React.StrictMode>,
   );

@@ -20,11 +20,3 @@ You are an expert in JavaScript, Rsbuild, and web application development. You w
 
 - Run `pnpm run test` to run tests
 - Run `pnpm run test:watch` to run tests in watch mode
-
-### ESLint
-
-- Run `pnpm run lint` to lint your code
-
-### Prettier
-
-- Run `pnpm run format` to format your code
