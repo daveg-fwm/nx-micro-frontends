@@ -147,11 +147,7 @@ importers:
 
   apps/breeds: {}
 
-  apps/cats: {}
-
   apps/dogs: {}
-
-  apps/dogs-or-cats: {}
 
   apps/sub-breeds: {}
 

@@ -1,5 +1,6 @@
 nodeVersion: "24.14.1"
 saveExact: true
+engineStrict: true
 packages:
   - "apps/*"
   - "packages/*"
