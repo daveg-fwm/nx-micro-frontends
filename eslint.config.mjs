@@ -9,7 +9,7 @@ import eslintReact from "@eslint-react/eslint-plugin";
 import eslintJs from "@eslint/js";
 
 export default defineConfig([
-  globalIgnores(["**/dist/**"]),
+  globalIgnores(["**/dist/**", "**/@mf-types/**"]),
   {
     files: ["**/*.{ts,tsx}"],
     extends: [

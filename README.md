@@ -1,105 +1,82 @@
-# New Nx Repository
+# Nx micro-frontends app
 
-<a alt="Nx logo" href="https://nx.dev" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/nrwl/nx/master/images/nx-logo.png" width="45"></a>
+This Nx monorepo serves as an example of how to configure a micro-frontends SPA. It consists of:
 
-✨ Your new, shiny [Nx workspace](https://nx.dev) is ready ✨.
+- 1 host SPA
+- 2 remote SPAs
+- 1 package of shared components and images
 
-[Learn more about this workspace setup and its capabilities](https://nx.dev/nx-api/js?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or run `npx nx graph` to visually explore what was created. Now, let's get you up to speed!
-## Try the full Nx platform
-🚀 If you haven't connected to Nx Cloud yet, [complete your setup here](https://cloud.nx.app/setup/connect-workspace/guide). Get faster builds with remote caching, distributed task execution, and self-healing CI. [See how your workspace can benefit](#nx-cloud).
-## Generate a library
+## Stack
 
-```sh
-npx nx g @nx/js:lib packages/pkg1 --publishable --importPath=@my-org/pkg1
+- Nx
+- Module Federation
+- Rsbuild
+- React
+- TypeScript
+- React Router
+- Tanstack Query
+- TailwindCSS
+- Headless UI
+- Tailwind Plus
+
+## Getting Started
+
+Installation requires the following versions:
+
+- node v24.14.1
+- pnpm v11.1.2
+
+### Installation
+
+Install the dependencies:
+
+```bash
+pnpm i
 ```
 
-## Run tasks
+### Development
 
-To build the library use:
+Start the development server with HMR:
 
-```sh
-npx nx build pkg1
+```bash
+// Full micro-frontends SPA
+pnpm dev
+
+// Breeds app only
+pnpm dev:breeds
+
+// Sub-breeds app only
+pnpm dev:subBreeds
 ```
 
-To run any task with Nx use:
+### Other commands
 
-```sh
-npx nx <target> <project-name>
+Check the `package.json` file for each app to view the full list of commands. Use the `nx` command to run eg:
+
+```bash
+// Run eslint on the host `dogs` app
+nx lint dogs
 ```
 
-These targets are either [inferred automatically](https://nx.dev/concepts/inferred-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) or defined in the `project.json` or `package.json` files.
+## Key configurations
 
-[More about running tasks in the docs &raquo;](https://nx.dev/features/run-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- Prefer custom app and package installation over Nx plugins for total control over core library versions and structure.
+- Hook up package scripts to `nx` command in `package.json` files.
+- Add includes and paths to `tsconfig.json` files for each app and package.
+- Use the `@source` Tailwind directive in each `App.css` file. This informs Tailwind of additional locations where its classes are used.
+- Import `App.css` files from remote applications to the host `App.css` file. This ensures any custom styles from remote applications are included when running the full micro-frontends SPA.
 
-## Versioning and releasing
+### Module Federation
 
-To version and release the library use
+Each application uses the `Rsbuild` web build tool which is powered by `Rspack`, a Rust-based bundler, which provides built-in, drop-in compatibility for Module Federation.
 
-```
-npx nx release
-```
+Configuration is straightforward using the `@module-federation/rsbuild-plugin` and `@module-federation/enhanced` packages. Inside each application you will find a `rsbuild.config.ts` file which contains a simple `pluginModuleFederation` setup.
 
-Pass `--dry-run` to see what would happen without actually releasing the library.
+Note there is also a `module-federation.config.ts` file wich contains the config for our host app and allows for a single source of defined shared libraries which must be added to the config for each remote app as well. These are libraries shared between the host and remote apps which must all use the exact same versions.
 
-[Learn more about Nx release &raquo;](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+### The Asynchronous Bootstrap Pattern
 
-## Keep TypeScript project references up to date
+This approach ensures the application negotiates which versions of shared libraries to use at runtime before the app mounts. It uses a "two-file" entry approach:
 
-Nx automatically updates TypeScript [project references](https://www.typescriptlang.org/docs/handbook/project-references.html) in `tsconfig.json` files to ensure they remain accurate based on your project dependencies (`import` or `require` statements). This sync is automatically done when running tasks such as `build` or `typecheck`, which require updated references to function correctly.
-
-To manually trigger the process to sync the project graph dependencies information to the TypeScript project references, run the following command:
-
-```sh
-npx nx sync
-```
-
-You can enforce that the TypeScript project references are always in the correct state when running in CI by adding a step to your CI job configuration that runs the following command:
-
-```sh
-npx nx sync:check
-```
-
-[Learn more about nx sync](https://nx.dev/reference/nx-commands#sync)
-
-## Nx Cloud
-
-Nx Cloud ensures a [fast and scalable CI](https://nx.dev/ci/intro/why-nx-cloud?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects) pipeline. It includes features such as:
-
-- [Remote caching](https://nx.dev/ci/features/remote-cache?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task distribution across multiple machines](https://nx.dev/ci/features/distribute-task-execution?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Automated e2e test splitting](https://nx.dev/ci/features/split-e2e-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Task flakiness detection and rerunning](https://nx.dev/ci/features/flaky-tasks?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-### Set up CI (non-Github Actions CI)
-
-**Note:** This is only required if your CI provider is not GitHub Actions.
-
-Use the following command to configure a CI workflow for your workspace:
-
-```sh
-npx nx g ci-workflow
-```
-
-[Learn more about Nx on CI](https://nx.dev/ci/intro/ci-with-nx#ready-get-started-with-your-provider?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Install Nx Console
-
-Nx Console is an editor extension that enriches your developer experience. It lets you run tasks, generate code, and improves code autocompletion in your IDE. It is available for VSCode and IntelliJ.
-
-[Install Nx Console &raquo;](https://nx.dev/getting-started/editor-setup?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-## Useful links
-
-Learn more:
-
-- [Learn more about this workspace setup](https://nx.dev/nx-api/js?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Learn about Nx on CI](https://nx.dev/ci/intro/ci-with-nx?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [Releasing Packages with Nx release](https://nx.dev/features/manage-releases?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-- [What are Nx plugins?](https://nx.dev/concepts/nx-plugins?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
-
-And join the Nx community:
-
-- [Discord](https://go.nx.dev/community)
-- [Follow us on X](https://twitter.com/nxdevtools) or [LinkedIn](https://www.linkedin.com/company/nrwl)
-- [Our Youtube channel](https://www.youtube.com/@nxdevtools)
-- [Our blog](https://nx.dev/blog?utm_source=nx_project&utm_medium=readme&utm_campaign=nx_projects)
+- **index.ts:** contains only a dynamic import of the root app logic
+- **bootstrap.tsx:** contains the root logic to initialize the app

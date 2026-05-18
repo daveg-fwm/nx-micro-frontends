@@ -3,6 +3,7 @@ import ReactDOM from "react-dom/client";
 import { BrowserRouter } from "react-router";
 
 import App from "./App";
+import "./App.css";
 
 const rootEl = document.getElementById("root");
 
