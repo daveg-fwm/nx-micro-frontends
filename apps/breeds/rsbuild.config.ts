@@ -23,6 +23,7 @@ export default defineConfig({
     }),
     pluginModuleFederation({
       name: "breeds",
+      filename: "remoteEntry.js",
       exposes: {
         "./breeds-app": "./src/App.tsx",
       },
