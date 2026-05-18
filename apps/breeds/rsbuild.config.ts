@@ -1,3 +1,5 @@
+import { withZephyr } from "zephyr-rsbuild-plugin";
+
 import { pluginModuleFederation } from "@module-federation/rsbuild-plugin";
 import { defineConfig } from "@rsbuild/core";
 import { pluginBabel } from "@rsbuild/plugin-babel";
@@ -29,5 +31,7 @@ export default defineConfig({
       },
       shared: mfConfig.shared,
     }),
+    withZephyr(),
   ],
+  output: { assetPrefix: "auto" },
 });

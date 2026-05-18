@@ -3,6 +3,10 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "zephyr:dependencies": {
+    "breeds": "workspace:*",
+    "subBreeds": "workspace:*"
+  },
   "nx": {
     "name": "dogs",
     "targets": {
