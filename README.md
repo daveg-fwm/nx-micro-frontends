@@ -72,7 +72,7 @@ Each application uses the `Rsbuild` web build tool which is powered by `Rspack`,
 
 Configuration is straightforward using the `@module-federation/rsbuild-plugin` and `@module-federation/enhanced` packages. Inside each application you will find a `rsbuild.config.ts` file which contains a simple `pluginModuleFederation` setup.
 
-Note there is also a `module-federation.config.ts` file wich contains the config for our host app and allows for a single source of defined shared libraries which must be added to the config for each remote app as well. These are libraries shared between the host and remote apps which must all use the exact same versions.
+Note there is also a `module-federation.config.ts` file which contains the config for our host app and allows for a single source of defined shared libraries which must be added to the config for each remote app as well. These are libraries shared between the host and remote apps which must all use the exact same versions.
 
 ### The Asynchronous Bootstrap Pattern
 
