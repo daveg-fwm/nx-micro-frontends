@@ -6,7 +6,7 @@
     "dev": "nx run-many -t dev -p breeds subBreeds dogs",
     "dev:breeds": "nx dev breeds",
     "dev:subBreeds": "nx dev subBreeds",
-    "build": "nx run-many -t build -p breeds subBreeds dogs"
+    "build": "nx build dogs"
   },
   "private": true,
   "dependencies": {
