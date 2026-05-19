@@ -1,5 +1,3 @@
-import { withZephyr } from "zephyr-rsbuild-plugin";
-
 import type { ModuleFederationOptions } from "@module-federation/rsbuild-plugin";
 
 import { dependencies } from "./package.json";
