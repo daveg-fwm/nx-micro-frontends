@@ -11,7 +11,8 @@
         "options": {
           "command": "rsbuild",
           "cwd": "apps/breeds"
-        }
+        },
+        "continuous": true
       },
       "build": {
         "executor": "nx:run-commands",
@@ -39,7 +40,8 @@
         "options": {
           "command": "rsbuild preview",
           "cwd": "apps/breeds"
-        }
+        },
+        "continuous": true
       },
       "test": {
         "executor": "nx:run-commands",

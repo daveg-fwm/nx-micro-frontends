@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "dev": "nx run-many -t dev -p breeds subBreeds dogs",
+    "dev": "nx dev dogs",
     "dev:breeds": "nx dev breeds",
     "dev:subBreeds": "nx dev subBreeds",
-    "build": "nx build dogs"
+    "build": "nx build dogs",
+    "prod": "nx preview dogs"
   },
   "private": true,
   "dependencies": {

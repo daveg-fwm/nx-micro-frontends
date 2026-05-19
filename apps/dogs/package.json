@@ -15,7 +15,17 @@
         "options": {
           "command": "rsbuild",
           "cwd": "apps/dogs"
-        }
+        },
+        "dependsOn": [
+          {
+            "target": "dev",
+            "projects": "breeds"
+          },
+          {
+            "target": "dev",
+            "projects": "subBreeds"
+          }
+        ]
       },
       "build": {
         "executor": "nx:run-commands",
@@ -53,7 +63,17 @@
         "options": {
           "command": "rsbuild preview",
           "cwd": "apps/dogs"
-        }
+        },
+        "dependsOn": [
+          {
+            "target": "preview",
+            "projects": "breeds"
+          },
+          {
+            "target": "preview",
+            "projects": "subBreeds"
+          }
+        ]
       },
       "test": {
         "executor": "nx:run-commands",

@@ -6,7 +6,7 @@ import { pluginBabel } from "@rsbuild/plugin-babel";
 import { pluginReact } from "@rsbuild/plugin-react";
 import { pluginSvgr } from "@rsbuild/plugin-svgr";
 
-import { mfConfig } from "../../module-federation.config";
+import { deployProdToZephyr, mfConfig } from "../../module-federation.config";
 
 // Docs: https://rsbuild.rs/config/
 export default defineConfig({
@@ -25,7 +25,7 @@ export default defineConfig({
     pluginSvgr(),
     pluginModuleFederation(mfConfig),
 
-    process.env.NODE_ENV === "production" && withZephyr(),
+    deployProdToZephyr && withZephyr(),
   ],
   output: { assetPrefix: "auto" },
 });
