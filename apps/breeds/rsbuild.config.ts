@@ -6,7 +6,7 @@ import { pluginBabel } from "@rsbuild/plugin-babel";
 import { pluginReact } from "@rsbuild/plugin-react";
 import { pluginSvgr } from "@rsbuild/plugin-svgr";
 
-import { deployProdToZephyr, mfConfig } from "../../module-federation.config";
+import { deployProdToZephyr, mfShared } from "../../module-federation.config";
 
 // Docs: https://rsbuild.rs/config/
 export default defineConfig({
@@ -29,7 +29,7 @@ export default defineConfig({
       exposes: {
         "./breeds-app": "./src/App.tsx",
       },
-      shared: mfConfig.shared,
+      shared: mfShared,
     }),
 
     deployProdToZephyr && withZephyr(),

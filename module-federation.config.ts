@@ -2,21 +2,36 @@ import type { ModuleFederationOptions } from "@module-federation/rsbuild-plugin"
 
 import { dependencies } from "./package.json";
 
-export const mfConfig: ModuleFederationOptions = {
+/** Shared dependency policy for host and remotes (remotes use this as-is). */
+export const mfShared: NonNullable<ModuleFederationOptions["shared"]> = {
+  react: { singleton: true, requiredVersion: dependencies.react },
+  "react-dom": { singleton: true, requiredVersion: dependencies["react-dom"] },
+  "react-router": { singleton: true, requiredVersion: dependencies["react-router"] },
+  "@tanstack/react-query": {
+    singleton: true,
+    requiredVersion: dependencies["@tanstack/react-query"],
+  },
+  clsx: { singleton: true, requiredVersion: dependencies["clsx"] },
+};
+
+/**
+ * Host-only: load react-query in the shell entry so the federated singleton exists before any
+ * remote runs. Avoids broken handoffs when the “first” remote to load is not the same as the
+ * remote you open second (e.g. subBreeds then breeds).
+ */
+export const mfHostConfig: ModuleFederationOptions = {
   name: "host",
   remotes: {
     breeds: "breeds@http://localhost:2001/remoteEntry.js",
     subBreeds: "subBreeds@http://localhost:2002/remoteEntry.js",
   },
   shared: {
-    react: { singleton: true, requiredVersion: dependencies.react },
-    "react-dom": { singleton: true, requiredVersion: dependencies["react-dom"] },
-    "react-router": { singleton: true, requiredVersion: dependencies["react-router"] },
+    ...mfShared,
     "@tanstack/react-query": {
       singleton: true,
       requiredVersion: dependencies["@tanstack/react-query"],
+      eager: true,
     },
-    clsx: { singleton: true, requiredVersion: dependencies["clsx"] },
   },
 };
 

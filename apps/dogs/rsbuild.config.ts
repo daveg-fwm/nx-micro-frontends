@@ -6,7 +6,7 @@ import { pluginBabel } from "@rsbuild/plugin-babel";
 import { pluginReact } from "@rsbuild/plugin-react";
 import { pluginSvgr } from "@rsbuild/plugin-svgr";
 
-import { deployProdToZephyr, mfConfig } from "../../module-federation.config";
+import { deployProdToZephyr, mfHostConfig } from "../../module-federation.config";
 
 // Docs: https://rsbuild.rs/config/
 export default defineConfig({
@@ -23,7 +23,7 @@ export default defineConfig({
       },
     }),
     pluginSvgr(),
-    pluginModuleFederation(mfConfig),
+    pluginModuleFederation(mfHostConfig),
 
     deployProdToZephyr && withZephyr(),
   ],

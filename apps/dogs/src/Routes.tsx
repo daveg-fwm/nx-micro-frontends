@@ -1,9 +1,13 @@
-import Breeds from "breeds/breeds-app";
+import { Suspense, lazy } from "react";
 import { Routes as ReactRouterRoutes, Route } from "react-router";
-import SubBreeds from "subBreeds/sub-breeds-app";
+
+import { HomeLoadingSkeleton } from "@shared";
 
 import App from "./App";
 import { Home } from "./pages/Home";
+
+const Breeds = lazy(() => import("breeds/breeds-app"));
+const SubBreeds = lazy(() => import("subBreeds/sub-breeds-app"));
 
 export function Routes() {
   return (
@@ -12,8 +16,22 @@ export function Routes() {
         <Route index element={<Home />} />
       </Route>
 
-      <Route path="/breeds" element={<Breeds />} />
-      <Route path="/sub-breeds" element={<SubBreeds />} />
+      <Route
+        path="/breeds"
+        element={
+          <Suspense fallback={<HomeLoadingSkeleton />}>
+            <Breeds />
+          </Suspense>
+        }
+      />
+      <Route
+        path="/sub-breeds"
+        element={
+          <Suspense fallback={<HomeLoadingSkeleton />}>
+            <SubBreeds />
+          </Suspense>
+        }
+      />
     </ReactRouterRoutes>
   );
 }

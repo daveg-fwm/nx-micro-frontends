@@ -15,7 +15,7 @@ export function DogImages({ selectedBreed }: DogImagesProps) {
     error,
     refetch,
   } = useQuery({
-    queryKey: ["randomDogBreedImages", selectedBreed.value],
+    queryKey: ["subBreeds", "randomDogBreedImages", selectedBreed.value],
     queryFn: () => getRandomDogBreedImages(selectedBreed.value),
     staleTime: Number.POSITIVE_INFINITY,
     refetchOnWindowFocus: false,

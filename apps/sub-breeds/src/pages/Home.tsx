@@ -11,7 +11,7 @@ export function Home() {
   const [selectedBreed, setSelectedBreed] = useState({ label: "", value: "" });
 
   const { isPending, error, data, refetch } = useQuery({
-    queryKey: ["dogBreedList"],
+    queryKey: ["subBreeds", "dogBreedList"],
     queryFn: getDogBreedList,
   });
 
