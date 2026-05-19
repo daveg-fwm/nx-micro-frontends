@@ -49,6 +49,18 @@ pnpm dev:breeds
 pnpm dev:subBreeds
 ```
 
+Build production of full SPA:
+
+```bash
+pnpm build
+```
+
+Serve production of full SPA:
+
+```bash
+pnpm prod
+```
+
 ### Other commands
 
 Check the `package.json` file for each app to view the full list of commands. Use the `nx` command to run eg:
