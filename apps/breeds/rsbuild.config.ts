@@ -31,7 +31,8 @@ export default defineConfig({
       },
       shared: mfConfig.shared,
     }),
-    withZephyr(),
+
+    process.env.NODE_ENV === "production" && withZephyr(),
   ],
   output: { assetPrefix: "auto" },
 });

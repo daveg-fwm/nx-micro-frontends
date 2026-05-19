@@ -22,7 +22,17 @@
         "options": {
           "command": "rsbuild build",
           "cwd": "apps/dogs"
-        }
+        },
+        "dependsOn": [
+          {
+            "target": "build",
+            "projects": "breeds"
+          },
+          {
+            "target": "build",
+            "projects": "subBreeds"
+          }
+        ]
       },
       "format": {
         "executor": "nx:run-commands",

@@ -24,7 +24,8 @@ export default defineConfig({
     }),
     pluginSvgr(),
     pluginModuleFederation(mfConfig),
-    withZephyr(),
+
+    process.env.NODE_ENV === "production" && withZephyr(),
   ],
   output: { assetPrefix: "auto" },
 });

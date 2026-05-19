@@ -8,8 +8,9 @@ import { Home } from "./pages/Home";
 export function Routes() {
   return (
     <ReactRouterRoutes>
-      <Route path="/" element={<App />} />
-      <Route index element={<Home />} />
+      <Route path="/" element={<App />}>
+        <Route index element={<Home />} />
+      </Route>
 
       <Route path="/breeds" element={<Breeds />} />
       <Route path="/sub-breeds" element={<SubBreeds />} />
